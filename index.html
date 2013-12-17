@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="vector.js"></script>
+<script type="text/javascript" src="drum.js"></script>
+
+<head>
+</head>
+<body>
+
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Chose</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+
+          <div class="form-group">
+            <label for="name" id="idName">Enter name</label>
+            <input type="text" id="name" class="form-control">
+          </div>
+     
+        </form>
+
+
+        <img border="0" src="" alt="notes" id="noteImage" width="450" height="450">
+        <img src="Loading_Animation2.gif" alt="Loading" class="loading-gif" />
+      </div>
+      <div class="modal-footer">
+        <div id="buttonGroup">
+        <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+        
+          <button  onclick="app.printImage()" class="btn btn-primary" disabled>Print</button>
+           <a href="" download="" class="btn btn-primary disabled" id="linkImage" >Download Image</a>
+  		    <button  data-toggle="modal" data-target="#mailModal" class="btn btn-primary"  disabled>Send via e-mail</button>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="mailModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Mail</h4>
+      </div>
+      <div class="modal-body">
+      	<form role="form">
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Email address</label>
+		    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+		  </div>
+		</form>
+
+      <img src="Loading_Animation2.gif" alt="Loading" class="loading-gif" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+		<button type="button" onclick="app.sendImage()" class="btn btn-primary">Submit</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Drum notation</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="sendfeedback.html">Send feedback</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	
+<div id="contain">
+	<canvas id="canvas" style="background-image:url('images/background.png');" width="900" height="100">
+	</canvas>
+</div>
+<div id='center'>
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" onclick="app.preview()">process image</button>
+  <button type="button" onclick="app.generateBar()"  class="btn btn-primary btn-lg">generate bar</button>
+
+
+
+</div>
+
+</body>
+</script>
